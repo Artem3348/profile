@@ -1,0 +1,35 @@
+{   
+    "user": {
+        "name": "Artem",
+        "avatar": "https://avatars.githubusercontent.com/u/117042730?v=4",
+        "location": "Saint-Petersburg, Russia",
+        "occupation": "developer"
+    },
+    "links": [
+        {
+            "url": "https://github.com/Artem3348",
+            "text": "github",
+            "icon": "fa fa-github"
+        },
+        {
+            "url": "mailto:agatema@mail.ru",
+            "text": "email",
+            "icon": "fa fa-envelope"
+        },
+        {
+            "url": "telto:89999999999",
+            "text": "phone",
+            "icon": "fa fa-phone"
+        },
+        {
+            "url": "https://linkedin.com",
+            "text": "linkedin",
+            "icon": "fa fa-linkedin"
+        },
+        {
+            "url": "https://telegram.org",
+            "text": "telegram",
+            "icon": "fa fa-telegram"       
+        }
+    ]
+}

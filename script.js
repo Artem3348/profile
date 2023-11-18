@@ -64,7 +64,7 @@ function toggleDisplayPageContent() {
         if ($element.style.display === '') {
             $element.style.display = 'none';
         } else {
-            $element.style.display = '';
+            $element.removeAttribute('style');
         }
     });
 }

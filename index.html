@@ -25,17 +25,24 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <img id="avatar" alt="photo"/>
-        <h1 id="name"></h1>
-        <br />
-        <h3 id="location"><i class="fa fa-location-arrow"></i></h3>
-        <p id="occupation" class="my-3"></p>
-        <br />
-        <br />
-        <a id="link" class="btn btn-primary bg-blue" target="_blank">
-            <i class="fa fa-github"></i>
-        </a>
-        <p id="year"></p>
-        <script src="script.js"></script>
+        <div class="container d-flex justify-content-center align-items-center flex-column mt-5">
+            <div class="text-center mb-3">
+                <img id="avatar" class="img-thumbnail rounded-circle w-50" alt="photo"/>
+            </div>
+            <h1 id="name" class="mb-3"></h1>
+            <h3 id="location" class="mb-2"><i class="fa fa-location-arrow"></i></h3>
+            <p id="occupation" class="mb-5"></p>
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item btn btn-primary" id="link">
+                    <a target="_blank">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+              </ul>
+            <footer class="d-flex justify-content-center">
+                <p id="year"></p>
+            </footer>
+        </div>
     </body>
+    <script src="script.js"></script>
 </html>

@@ -79,8 +79,8 @@ function createStub() {
 }
 
 function renderStub($stub) {
-    const $body = document.querySelector('body');
-    $body.append($stub);
+    const $container = document.querySelector('.container');
+    $container.append($stub);
 }
 
 function toggleDisplayStub($stub) {

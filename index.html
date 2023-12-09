@@ -25,17 +25,21 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <div class="container d-flex justify-content-center align-items-center flex-column mt-5">
-            <div class="text-center mb-3">
+        <div class="container d-flex align-items-center flex-column">
+            <div class="text-center my-3">
                 <img id="avatar" class="img-thumbnail rounded-circle w-50" alt="photo"/>
             </div>
-            <h1 id="name" class="mb-3"></h1>
+            <h1 class="mb-3"><b id="name"></b></h1>
             <p id="location" class="mb-2"><i class="fa fa-location-arrow"></i></p>
             <p id="occupation" class="mb-5"></p>
-            <div class="btn-group-vertical" role="group">
-                <a target="_blank" class="btn btn-outline-dark" id="link">
-                    <i></i>
-                </a>
+            <div class="row">
+                <div class="btn-group d-flex flex-wrap" role="group">
+                    <div class="col-md-auto col-12" id="link">
+                        <a target="_blank" class="btn btn-outline-dark ms-1 mb-1 d-flex justify-content-center align-items-center">
+                            <i class="me-2"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
             <footer class="d-flex justify-content-center">
                 <p id="year"></p>

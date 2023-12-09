@@ -12,26 +12,29 @@ class Profile {
         const $occupation = document.querySelector('#occupation');
         $occupation.innerText = data.user.occupation;
 
-        const $templateLink = document.querySelector('#link');
-        this.generateLinks(data.links, $templateLink);
-        $templateLink.remove();
+        const $templateBtnLink = document.querySelector('#link');
+        this.generateLinks(data.links, $templateBtnLink);
+        $templateBtnLink.remove();
         
         const $year = document.querySelector('#year');
         $year.innerText = new Date().getFullYear();
     }
     
-    generateLinks(linksData, $templateLink) {
+    generateLinks(linksData, $templateBtnLink) {
         for (let name of linksData) {
-            const $newLink = $templateLink.cloneNode(true);
+            const $newBtnLink = $templateBtnLink.cloneNode(true);
             const linkText = ' ' + name.text;
+
+            const $newLink = $newBtnLink.querySelector('a');
+
             $newLink.append(linkText);
 
             $newLink.setAttribute('href', name.url);
 
-            const $newLinkIcon = $newLink.querySelector('i');
-            $newLinkIcon.className = name.icon;
+            const $newBtnLinkIcon = $newBtnLink.querySelector('i');
+            $newBtnLinkIcon.className += ' ' + name.icon;
             
-            $templateLink.before($newLink);
+            $templateBtnLink.before($newBtnLink);
         }
 
         return true;
@@ -61,7 +64,7 @@ function toggleDisplayPageContent() {
     const $elements = document.querySelectorAll('body *');
 
     $elements.forEach($element => {
-        if ($element.style.display === '') {
+        if ($element.style.display === '' && $element.className !== 'loader') {
             $element.style.display = 'none';
         } else {
             $element.removeAttribute('style');
@@ -70,17 +73,26 @@ function toggleDisplayPageContent() {
 }
 
 function createStub() {
+    const $stubContainer = document.createElement('div');
+    $stubContainer.className += 'container d-flex flex-column justify-content-center align-items-center';
+
     const $stub = document.createElement('div');
     $stub.textContent = 'Профиль загружается';
 
-    renderStub($stub);
+    $stubContainer.append($stub);
+
+    const $loader = document.createElement('span');
+    $loader.className = 'loader';
+
+    renderStub($stubContainer, $loader);
 
     return $stub
 }
 
-function renderStub($stub) {
+function renderStub($stub, $loader) {
     const $container = document.querySelector('.container');
     $container.append($stub);
+    $stub.append($loader);
 }
 
 function toggleDisplayStub($stub) {
@@ -91,13 +103,21 @@ function toggleDisplayStub($stub) {
     }
 }
 
+function addDisplayStub($stub) {
+    $stub.style.display = 'block';
+}
+
+function removeStub($stub) {
+    $stub.parentElement.remove();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const $stub = createStub();
     toggleDisplayPageContent();
-    toggleDisplayStub($stub);
+    addDisplayStub($stub);
 
     setTimeout(() => {
         toggleDisplayPageContent();
-        toggleDisplayStub($stub);
+        removeStub($stub);
 }, 2500);
 });

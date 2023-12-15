@@ -49,7 +49,7 @@ class Profile {
 
 let profile = new Profile();
 
-getData('../src/data.json')
+getData('../data/data.json')
     .then(data => {
         profile.render(data);
     }).catch(error => {

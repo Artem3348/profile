@@ -1,3 +1,9 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+
+
 class Profile {
     render(data) {
         const $avatar = document.querySelector('#avatar');
@@ -43,7 +49,7 @@ class Profile {
 
 let profile = new Profile();
 
-getData('data.json')
+getData('../src/data.json')
     .then(data => {
         profile.render(data);
     }).catch(error => {
@@ -121,3 +127,5 @@ document.addEventListener('DOMContentLoaded', () => {
         removeStub($stub);
 }, 2500);
 });
+/******/ })()
+;

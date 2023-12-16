@@ -2,6 +2,11 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
+;// CONCATENATED MODULE: ./data/data.json
+const data_namespaceObject = JSON.parse('{"user":{"name":"Artem","avatar":"https://avatars.githubusercontent.com/u/117042730?v=4","location":"Saint-Petersburg, Russia","occupation":"developer"},"links":[{"url":"https://github.com/Artem3348","text":"github","icon":"fa fa-github"},{"url":"mailto:agatema@mail.ru","text":"email","icon":"fa fa-envelope"},{"url":"telto:89999999999","text":"phone","icon":"fa fa-phone"},{"url":"https://linkedin.com","text":"linkedin","icon":"fa fa-linkedin"},{"url":"https://telegram.org","text":"telegram","icon":"fa fa-telegram"}]}');
+;// CONCATENATED MODULE: ./src/index.js
+
+
 
 
 class Profile {
@@ -49,22 +54,7 @@ class Profile {
 
 let profile = new Profile();
 
-getData('../data/data.json')
-    .then(data => {
-        profile.render(data);
-    }).catch(error => {
-        console.error(error);
-    });
-
-async function getData(pathToJSON) {
-    try {
-        const getResponse = await fetch(pathToJSON);
-        const responsedata = await getResponse.json();
-        return responsedata;
-    } catch (error) {
-        console.error(error);
-    }
-}
+profile.render(data_namespaceObject);
 
 function toggleDisplayPageContent() {
     const $elements = document.querySelectorAll('body *');

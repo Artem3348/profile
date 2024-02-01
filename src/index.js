@@ -1,81 +1,8 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ 79:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ 279:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ 684:
-/***/ ((module) => {
-
-module.exports = JSON.parse('{"user":{"name":"Artem","avatar":"https://avatars.githubusercontent.com/u/117042730?v=4","location":"Saint-Petersburg, Russia","occupation":"developer"},"links":[{"url":"https://github.com/Artem3348","text":"github","icon":"fa fa-github"},{"url":"mailto:agatema@mail.ru","text":"email","icon":"fa fa-envelope"},{"url":"telto:89999999999","text":"phone","icon":"fa fa-phone"},{"url":"https://linkedin.com","text":"linkedin","icon":"fa fa-linkedin"},{"url":"https://telegram.org","text":"telegram","icon":"fa fa-telegram"}]}');
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-var exports = __webpack_exports__;
-var __webpack_unused_export__;
-
-__webpack_unused_export__ = ({ value: true });
-__webpack_require__(79);
-__webpack_require__(279);
-var data_json_1 = __webpack_require__(684);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+require("./styles.css");
+var data_json_1 = require("../data/data.json");
 var Profile = /** @class */ (function () {
     function Profile() {
     }
@@ -138,7 +65,7 @@ var Profile = /** @class */ (function () {
     return Profile;
 }());
 var profile = new Profile();
-profile.render(data_json_1);
+profile.render(data_json_1.default);
 function toggleDisplayPageContent() {
     var $elements = document.querySelectorAll('body *');
     $elements.forEach(function ($element) {
@@ -188,8 +115,3 @@ document.addEventListener('DOMContentLoaded', function () {
         removeStub($stub);
     }, 2500);
 });
-
-})();
-
-/******/ })()
-;

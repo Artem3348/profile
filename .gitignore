@@ -1,12 +1,11 @@
 .DS_Store
 node_modules
-todo
-deploys
+todo.md
+deploys.md
 public
-jsconfig
-babel.config
-vue.config
-.gitignore
+jsconfig.json
+babel.config.js
+vue.config.js
 
 # local env files
 .env.local

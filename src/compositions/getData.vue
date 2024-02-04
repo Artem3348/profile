@@ -1,5 +1,5 @@
 <script lang="ts">
-import {ref, Ref, onMounted} from "vue";
+import {ref, Ref, onMounted} from "@vue/composition-api";
 
 type User = {
   [key: string]: string;
@@ -14,8 +14,8 @@ interface Data {
   "links": Link,
 };
 
-export function getData(filePath: string): Ref<Data | null> {
-  const data = ref<Data | null>;
+export function getData(filePath: string): Ref<Data> {
+  const data = ref<Data>;
 
   onMounted(async () => {
     try {

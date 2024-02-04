@@ -1,6 +1,5 @@
 {
-  "name": "",
-  "version": "",
+  "name": "profile",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -46,6 +45,10 @@
     "last 2 versions",
     "not dead"
   ],
-  "_id": "@",
-  "readme": "ERROR: No README data found!"
+  "version": "1.0.0",
+  "main": "babel.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

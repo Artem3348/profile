@@ -4,12 +4,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
-// import { getData } from './compositions/getData';
+import { defineComponent,  onMounted } from '@vue/composition-api'
+// import { getData } from './compositions/getData.vue';
 
 export default defineComponent({
   setup() {
-    
+      onMounted(() => {
+        console.log('hello');
+      })
     return {
 
     }

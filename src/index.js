@@ -1,117 +1,121 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-require("../node_modules/bootstrap/dist/css/bootstrap.min.css");
-require("./styles.css");
-var data_json_1 = require("../data/data.json");
-var Profile = /** @class */ (function () {
-    function Profile() {
-    }
-    Profile.prototype.render = function (data) {
-        var $avatar = document.querySelector('#avatar');
-        if ($avatar === null) {
-            throw new Error('error');
-        }
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ./data/data.json
+const data_namespaceObject = JSON.parse('{"user":{"name":"Artem","avatar":"https://avatars.githubusercontent.com/u/117042730?v=4","location":"Saint-Petersburg, Russia","occupation":"developer"},"links":[{"url":"https://github.com/Artem3348","text":"github","icon":"fa fa-github"},{"url":"mailto:agatema@mail.ru","text":"email","icon":"fa fa-envelope"},{"url":"telto:89999999999","text":"phone","icon":"fa fa-phone"},{"url":"https://linkedin.com","text":"linkedin","icon":"fa fa-linkedin"},{"url":"https://telegram.org","text":"telegram","icon":"fa fa-telegram"}]}');
+;// CONCATENATED MODULE: ./src/index.js
+
+
+
+
+class Profile {
+    render(data) {
+        const $avatar = document.querySelector('#avatar');
         $avatar.setAttribute('src', data.user.avatar);
-        var $name = document.querySelector('#name');
-        if ($name === null) {
-            throw new Error('error');
-        }
+
+        const $name = document.querySelector('#name');
         $name.innerText = data.user.name;
-        var $location = document.querySelector('#location');
-        if ($location === null) {
-            throw new Error('error');
-        }
+
+        const $location = document.querySelector('#location');
         $location.innerHTML += ' ' + data.user.location;
-        var $occupation = document.querySelector('#occupation');
-        if ($occupation === null) {
-            throw new Error('error');
-        }
+
+        const $occupation = document.querySelector('#occupation');
         $occupation.innerText = data.user.occupation;
-        var $templateBtnLink = document.querySelector('#link');
-        if ($templateBtnLink === null) {
-            throw new Error('error');
-        }
+
+        const $templateBtnLink = document.querySelector('#link');
         this.generateLinks(data.links, $templateBtnLink);
         $templateBtnLink.remove();
-        var $year = document.querySelector('#year');
-        if ($year === null) {
-            throw new Error('error');
-        }
-        $year.innerText = String(new Date().getFullYear());
-    };
-    Profile.prototype.generateLinks = function (linksData, $templateBtnLink) {
-        if ($templateBtnLink === null) {
-            throw new Error('error');
-        }
-        for (var _i = 0, linksData_1 = linksData; _i < linksData_1.length; _i++) {
-            var name_1 = linksData_1[_i];
-            var $newBtnLink = $templateBtnLink.cloneNode(true);
-            var linkText = ' ' + name_1.text;
-            var $newLink = $newBtnLink.querySelector('a');
-            if ($newLink === null) {
-                throw new Error('error');
-            }
+        
+        const $year = document.querySelector('#year');
+        $year.innerText = new Date().getFullYear();
+    }
+    
+    generateLinks(linksData, $templateBtnLink) {
+        for (let name of linksData) {
+            const $newBtnLink = $templateBtnLink.cloneNode(true);
+            const linkText = ' ' + name.text;
+
+            const $newLink = $newBtnLink.querySelector('a');
+
             $newLink.append(linkText);
-            $newLink.setAttribute('href', name_1.url);
-            var $newBtnLinkIcon = $newBtnLink.querySelector('i');
-            if ($newBtnLinkIcon === null) {
-                throw new Error('error');
-            }
-            $newBtnLinkIcon.className += ' ' + name_1.icon;
+
+            $newLink.setAttribute('href', name.url);
+
+            const $newBtnLinkIcon = $newBtnLink.querySelector('i');
+            $newBtnLinkIcon.className += ' ' + name.icon;
+            
             $templateBtnLink.before($newBtnLink);
         }
+
         return true;
-    };
-    return Profile;
-}());
-var profile = new Profile();
-profile.render(data_json_1.default);
+    }
+}
+
+let profile = new Profile();
+
+profile.render(data_namespaceObject);
+
 function toggleDisplayPageContent() {
-    var $elements = document.querySelectorAll('body *');
-    $elements.forEach(function ($element) {
+    const $elements = document.querySelectorAll('body *');
+
+    $elements.forEach($element => {
         if ($element.style.display === '' && $element.className !== 'loader') {
             $element.style.display = 'none';
-        }
-        else {
+        } else {
             $element.removeAttribute('style');
         }
     });
 }
+
 function createStub() {
-    var $stubContainer = document.createElement('div');
-    $stubContainer.className +=
-        'container d-flex flex-column justify-content-center align-items-center';
-    var $stub = document.createElement('div');
+    const $stubContainer = document.createElement('div');
+    $stubContainer.className += 'container d-flex flex-column justify-content-center align-items-center';
+
+    const $stub = document.createElement('div');
     $stub.textContent = 'Профиль загружается';
+
     $stubContainer.append($stub);
-    var $loader = document.createElement('span');
+
+    const $loader = document.createElement('span');
     $loader.className = 'loader';
+
     renderStub($stubContainer, $loader);
-    return $stub;
+
+    return $stub
 }
+
 function renderStub($stub, $loader) {
-    var $container = document.querySelector('.container');
-    if ($container === null) {
-        throw new Error('error');
-    }
+    const $container = document.querySelector('.container');
     $container.append($stub);
     $stub.append($loader);
 }
+
+function toggleDisplayStub($stub) {
+    if ($stub.style.display === '') {
+        $stub.style.display = 'none';
+    } else {
+        $stub.style.display = 'block';
+    }
+}
+
 function addDisplayStub($stub) {
     $stub.style.display = 'block';
 }
+
 function removeStub($stub) {
-    if ($stub.parentElement === null) {
-        throw new Error('error');
-    }
     $stub.parentElement.remove();
 }
-document.addEventListener('DOMContentLoaded', function () {
-    var $stub = createStub();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const $stub = createStub();
     toggleDisplayPageContent();
     addDisplayStub($stub);
-    setTimeout(function () {
+
+    setTimeout(() => {
         toggleDisplayPageContent();
         removeStub($stub);
-    }, 2500);
+}, 2500);
 });
+/******/ })()
+;
